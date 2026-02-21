@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import Order from "../Order/Order";
 import CookingNow from "../CookingNow/CookingNow";
 import ReadyItem from "../ReadyItem/ReadyItem";
+import { toast } from "react-toastify";
 
 const OrderContainer = ({promise}) => {
     const data = use(promise)
@@ -16,7 +17,7 @@ const OrderContainer = ({promise}) => {
 
         const isExist = cooking.find(item => item.id == orders.id)
         if(isExist){
-         alert("Allready Cooking")
+         toast.error("Order allready on processing")
          return
         }
 
@@ -27,12 +28,16 @@ const OrderContainer = ({promise}) => {
    
     
     const handleReadyItem = (order) => {
+
+        order.CookedAt = new Date().toLocaleTimeString()
+
         const newReady = [...readyItem,order]
         setReadyItem(newReady)
 
         const removeItem = cooking.filter(item => item.id !== order.id)
         setCooking(removeItem)
-        
+
+        toast("Order Ready")
         
         const removeCooking = orders.filter(item => item.id !== order.id)
         setOrders(removeCooking)

@@ -4,6 +4,7 @@ const ReadyItem = ({item}) => {
             <h1 className="font-semibold text-xl">{item.order_title}</h1>
             <p className="text-xl">Quantity : {item.quantity}</p>
             <p>{item.waiterId}</p>
+            <p>Cooked: {item.CookedAt}</p>
         </div>
     );
 };

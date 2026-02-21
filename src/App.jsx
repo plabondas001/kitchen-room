@@ -5,6 +5,7 @@ import Heading from './Components/Heading/Heading'
 import Navbar from './Components/Navbar/Navbar'
 import OrderContainer from './Components/OrderContainer/OrderContainer'
 import { ChefHat } from 'lucide-react'
+import { ToastContainer } from 'react-toastify'
 
 const fetchOrder = async () => {
   const res = await fetch("/orders.json")
@@ -27,6 +28,18 @@ function App() {
         <OrderContainer promise = {promiseOrder}></OrderContainer>
       </Suspense>
     </section>
+<ToastContainer
+position="top-right"
+autoClose={1500}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
    </div>
   )
 }
