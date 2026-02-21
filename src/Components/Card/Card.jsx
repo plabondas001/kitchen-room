@@ -1,6 +1,6 @@
-import { CookingPot, NotebookPen,ScrollText } from "lucide-react";
+import { CookingPot, NotebookPen,ScrollText} from "lucide-react";
 
-const Card = ({totalOrders,totalCooking}) => {
+const Card = ({totalOrders,totalCooking,readyItem}) => {
    
     
   return (
@@ -40,7 +40,7 @@ const Card = ({totalOrders,totalCooking}) => {
          
           <div className="font-bold text-xl">
             Order Ready
-            <h1 className="text-4xl">{0}</h1>
+            <h1 className="text-4xl">{readyItem}</h1>
           </div>
         </div>
       </div>
